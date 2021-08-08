@@ -1,0 +1,45 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1706                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0.04";
+    object      boundaryNumberDensity_<specie>;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 -3 0 0 0 0 0];
+
+
+internalField   uniform 0;
+
+boundaryField
+{
+    boundary
+    {
+        type            fixedValue;
+        value           nonuniform List<scalar> 
+000 // number of cells in the boundary
+(
+(0 0 0) // numerical density scalar (Nd)
+...
+)
+;
+    }
+     boundary 
+    {
+        type            type;
+        value           value;
+    }
+   ...
+}
+
+
+// ************************************************************************* //
